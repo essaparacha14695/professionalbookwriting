@@ -132,6 +132,28 @@
     footer h4 { color: #fff; margin-bottom: 12px; }
     footer p, footer a { font-size: 14px; }
   </style>
+<style>
+.hero {
+  position: relative;
+  min-height: 90vh;
+  background-image: url("books-bg.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(8, 24, 40, 0.75);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  color: white;
+}
+</style>
 </head>
 <body>
 
@@ -153,7 +175,7 @@
 </header>
 
 <section class="hero">
-  <div>
+  <div class="hero-content">
     <h1>Enterprise‑Grade Book Writing & Publishing Solutions</h1>
     <p>ProfessionalBookWriting.com, powered by <strong>ProfessionalBookWriting®</strong>, helps executives, entrepreneurs, and thought leaders turn ideas into globally published books.</p>
     <a href="#contact" class="btn">Start Your Book</a>
