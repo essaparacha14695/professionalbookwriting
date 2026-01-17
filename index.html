@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Professional Book Writing | ProfessionalBookWriting®</title>
+  <meta name="description" content="ProfessionalBookWriting.com by ProfessionalBookWriting® – Enterprise-level ghostwriting, editing, publishing, and author branding services." />
+  <style>
+    :root {
+      --primary: #0f2a44;
+      --secondary: #c9a24d;
+      --light: #f7f9fc;
+      --dark: #0b0b0b;
+      --gray: #6b7280;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      color: var(--dark);
+      background: var(--light);
+    }
+    a { color: inherit; text-decoration: none; }
+    header {
+      background: linear-gradient(135deg, var(--primary), #163d63);
+      color: #fff;
+      padding: 24px 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    nav a {
+      margin-left: 28px;
+      font-weight: 500;
+      opacity: 0.9;
+    }
+    nav a:hover { opacity: 1; color: var(--secondary); }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo svg { width: 48px; height: 48px; }
+    .logo span {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+    .hero {
+      padding: 120px 64px;
+      background: #fff;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .hero h1 {
+      font-size: 48px;
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+    .hero p {
+      font-size: 18px;
+      color: var(--gray);
+      margin-bottom: 32px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 14px 28px;
+      background: var(--primary);
+      color: #fff;
+      border-radius: 6px;
+      font-weight: 600;
+      margin-right: 16px;
+    }
+    .btn.secondary {
+      background: transparent;
+      border: 2px solid var(--primary);
+      color: var(--primary);
+    }
+    .section {
+      padding: 96px 64px;
+    }
+    .section h2 {
+      font-size: 36px;
+      margin-bottom: 16px;
+    }
+    .section p.section-desc {
+      color: var(--gray);
+      max-width: 720px;
+      margin-bottom: 56px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 32px;
+    }
+    .card {
+      background: #fff;
+      padding: 32px;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    }
+    .card h3 { margin-bottom: 12px; }
+    .card p { color: var(--gray); }
+    .samples {
+      background: #0f172a;
+      color: #e5e7eb;
+    }
+    .sample-box {
+      background: #020617;
+      padding: 24px;
+      border-radius: 8px;
+      font-family: "Georgia", serif;
+      font-size: 15px;
+      line-height: 1.7;
+    }
+    .cta {
+      background: linear-gradient(135deg, var(--primary), #1e4e7a);
+      color: #fff;
+      text-align: center;
+      padding: 96px 64px;
+    }
+    footer {
+      background: #020617;
+      color: #9ca3af;
+      padding: 48px 64px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 32px;
+    }
+    footer h4 { color: #fff; margin-bottom: 12px; }
+    footer p, footer a { font-size: 14px; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <!-- ProfessionalBookWriting® Logo (SVG – can be replaced with official logo) -->
+    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <rect width="100" height="100" rx="18" fill="#c9a24d" />
+      <text x="50%" y="58%" text-anchor="middle" font-size="42" font-weight="700" fill="#0f2a44">PBW</text>
+    </svg>
+    <span>ProfessionalBookWriting®</span>
+  </div>
+  <nav>
+    <a href="#services">Services</a>
+    <a href="#samples">Samples</a>
+    <a href="#process">Process</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div>
+    <h1>Enterprise‑Grade Book Writing & Publishing Solutions</h1>
+    <p>ProfessionalBookWriting.com, powered by <strong>ProfessionalBookWriting®</strong>, helps executives, entrepreneurs, and thought leaders turn ideas into globally published books.</p>
+    <a href="#contact" class="btn">Start Your Book</a>
+    <a href="#samples" class="btn secondary">View Samples</a>
+  </div>
+  <div class="card">
+    <h3>Why Authors Choose Us</h3>
+    <ul style="margin-left:18px; color:var(--gray)">
+      <li>NDAs & full confidentiality</li>
+      <li>Enterprise editorial workflow</li>
+      <li>Global publishing standards</li>
+      <li>Dedicated project managers</li>
+    </ul>
+  </div>
+</section>
+
+<section id="services" class="section">
+  <h2>Our Services</h2>
+  <p class="section-desc">End‑to‑end author services designed for professionals, CEOs, and brands.</p>
+  <div class="grid">
+    <div class="card"><h3>Ghostwriting</h3><p>Memoirs, business books, fiction, and non‑fiction written by senior industry writers.</p></div>
+    <div class="card"><h3>Editing & Proofreading</h3><p>Structural editing, line editing, and final proofing to publishing standards.</p></div>
+    <div class="card"><h3>Publishing</h3><p>Amazon KDP, IngramSpark, print & eBook distribution worldwide.</p></div>
+    <div class="card"><h3>Author Branding</h3><p>Book websites, bios, media kits, and launch strategies.</p></div>
+  </div>
+</section>
+
+<section id="samples" class="section samples">
+  <h2>Writing Samples</h2>
+  <p class="section-desc">Representative excerpts demonstrating tone, structure, and quality.</p>
+  <div class="grid">
+    <div class="sample-box">
+      <strong>Business Book Sample</strong><br/><br/>
+      Leadership is not defined by authority, but by clarity. Organizations that scale successfully are those that convert vision into repeatable systems, empowering teams to execute without friction.
+    </div>
+    <div class="sample-box">
+      <strong>Memoir Sample</strong><br/><br/>
+      I did not recognize the moment my life changed—only later did I realize that every decision afterward traced back to that single afternoon of quiet resolve.
+    </div>
+    <div class="sample-box">
+      <strong>Fiction Sample</strong><br/><br/>
+      The city never slept, but it remembered everything. Every promise whispered into the night echoed back in ways no one expected.
+    </div>
+  </div>
+</section>
+
+<section id="process" class="section">
+  <h2>Our Process</h2>
+  <p class="section-desc">A structured, enterprise‑level workflow ensuring quality and transparency.</p>
+  <div class="grid">
+    <div class="card"><h3>01. Discovery</h3><p>Strategy calls, outline creation, and voice alignment.</p></div>
+    <div class="card"><h3>02. Writing</h3><p>Chapter‑by‑chapter delivery with milestone reviews.</p></div>
+    <div class="card"><h3>03. Editing</h3><p>Multi‑layer editorial review and refinement.</p></div>
+    <div class="card"><h3>04. Publish</h3><p>Formatting, ISBNs, and global release.</p></div>
+  </div>
+</section>
+
+<section id="contact" class="cta">
+  <h2>Ready to Become a Published Author?</h2>
+  <p style="margin:24px auto 40px; max-width:640px;">Schedule a confidential consultation with ProfessionalBookWriting® and start your book with confidence.</p>
+  <a href="mailto:info@professionalbookwriting.com" class="btn">Contact Us</a>
+</section>
+
+<footer>
+  <div>
+    <h4>ProfessionalBookWriting®</h4>
+    <p>Enterprise publishing & ghostwriting solutions.</p>
+  </div>
+  <div>
+    <h4>Services</h4>
+    <p>Ghostwriting<br/>Editing<br/>Publishing<br/>Branding</p>
+  </div>
+  <div>
+    <h4>Domain</h4>
+    <p>professionalbookwriting.com</p>
+  </div>
+  <div>
+    <h4>Legal</h4>
+    <p>Confidentiality • NDA • Terms</p>
+  </div>
+</footer>
+
+</body>
+</html>
