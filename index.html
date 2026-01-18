@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Professional Book Writing | ProfessionalBookWriting®</title>
   <meta name="description" content="ProfessionalBookWriting.com by ProfessionalBookWriting® – Enterprise-level ghostwriting, editing, publishing, and author branding services." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
       --primary: #0f2a44;
@@ -15,7 +16,8 @@
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      body {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
       line-height: 1.6;
       color: var(--dark);
       background: var(--light);
@@ -75,21 +77,24 @@
       margin-bottom: 32px;
     }
     .btn {
-      display: inline-block;
-      padding: 14px 28px;
-      background: var(--primary);
-      color: #fff;
-      border-radius: 6px;
-      font-weight: 600;
-      margin-right: 16px;
-    }
-    .btn.secondary {
-      background: transparent;
-      border: 2px solid var(--primary);
-      color: var(--primary);
-    }
+  display: inline-block;
+  padding: 14px 30px;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+.btn.primary {
+  background: linear-gradient(135deg, #1e4e7a, #0f2a44);
+  color: #fff;
+}
+
+.btn.ghost {
+  background: transparent;
+  border: 2px solid rgba(255,255,255,0.4);
+  color: #fff;
+}
     .section {
-      padding: 96px 64px;
+      padding: 120px 64px;
     }
     .section h2 {
       font-size: 36px;
@@ -106,11 +111,12 @@
       gap: 32px;
     }
     .card {
-      background: #fff;
-      padding: 32px;
-      border-radius: 10px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-    }
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(12px);
+  padding: 32px;
+  border-radius: 16px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+}
     .card h3 { margin-bottom: 12px; }
     .card p { color: var(--gray); }
     .samples {
@@ -141,8 +147,42 @@
     }
     footer h4 { color: #fff; margin-bottom: 12px; }
     footer p, footer a { font-size: 14px; }
+      .trust-strip {
+  background: #020617;
+  padding: 32px 64px;
+}
+
+.trust-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+  gap: 24px;
+  color: #cbd5f5;
+  font-weight: 600;
+  text-align: center;
+}
   </style>
 <style>
+  .hero-content {
+  max-width: 720px;
+}
+
+.hero h1 {
+  font-size: 56px;
+  line-height: 1.1;
+  font-weight: 800;
+}
+
+.hero-subtext {
+  font-size: 19px;
+  opacity: 0.9;
+  margin: 24px 0 36px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
 .hero {
   position: relative;
   min-height: 90vh;
@@ -180,12 +220,19 @@
 </header>
 
 <section class="hero">
-  <div class="hero-content">
-    <h1>Enterprise‑Grade Book Writing & Publishing Solutions</h1>
-    <p>ProfessionalBookWriting.com, powered by <strong>ProfessionalBookWriting®</strong>, helps executives, entrepreneurs, and thought leaders turn ideas into globally published books.</p>
-    <a href="#contact" class="btn">Start Your Book</a>
-    <a href="#samples" class="btn secondary">View Samples</a>
+ <div class="hero-content">
+  <h1>Enterprise-Grade Book Writing<br>& Publishing Solutions</h1>
+
+  <p class="hero-subtext">
+    ProfessionalBookWriting.com helps executives, entrepreneurs, and thought leaders
+    turn ideas into globally published books — confidentially and professionally.
+  </p>
+
+  <div class="hero-actions">
+    <a href="#contact" class="btn primary">Start Your Book</a>
+    <a href="#samples" class="btn ghost">View Samples</a>
   </div>
+</div>
   <div class="card">
     <h3>Why Authors Choose Us</h3>
     <ul style="margin-left:18px; color:var(--gray)">
@@ -196,7 +243,14 @@
     </ul>
   </div>
 </section>
-
+<section class="trust-strip">
+  <div class="trust-grid">
+    <div>NDAs & Confidentiality</div>
+    <div>Milestone-Based Delivery</div>
+    <div>Enterprise Editorial QA</div>
+    <div>Full Rights Ownership</div>
+  </div>
+</section>
 <section id="services" class="section">
   <h2>Our Services</h2>
   <p class="section-desc">End‑to‑end author services designed for professionals, CEOs, and brands.</p>
