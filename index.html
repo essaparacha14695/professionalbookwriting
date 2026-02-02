@@ -258,6 +258,47 @@
   border: none;
   cursor: pointer;
 }
+
+/* ===== QUOTE POPUP FIX ===== */
+#quoteOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+#quotePopup {
+  background: #0b1a33;
+  color: #ffffff;
+  width: 100%;
+  max-width: 420px;
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+  position: relative;
+  z-index: 10000;
+}
+
+#quotePopup input,
+#quotePopup select,
+#quotePopup textarea {
+  background: #111827;
+  color: #ffffff;
+  border: 1px solid rgba(255,255,255,0.15);
+}
+
+#quotePopup .close {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+}
+
 </style>
 
 </head>
@@ -1088,7 +1129,7 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     try {
-      await fetch("https://script.google.com/a/macros/thinktechnologies.net/s/AKfycbz8zEtb7OQcgXuWYF5Qm7Yp66qO4d1cSrrj7VxzmgAUdo0D8Yc0L04Q00uUZpSCJGH55g/exec", {
+      await fetch("https://script.google.com/macros/s/AKfycbynAmNMyz8xlohIibrRAaSV1tDLtwFAnfgSoD4Q3qtTMBMGRBqg7Tkwie44otjvLwLK/exec", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload)
