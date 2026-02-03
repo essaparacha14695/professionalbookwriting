@@ -206,209 +206,85 @@
 }
 
 </style>
-
 <style>
-#quoteOverlay {
+.fv-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.6);
-  display: flex;
+  background: rgba(0,0,0,0.7);
+  display: none;
   align-items: center;
   justify-content: center;
   z-index: 9999;
 }
 
-.quote-popup {
-  background: #0b1d3a;
-  padding: 30px;
-  border-radius: 16px;
-  max-width: 420px;
-  width: 90%;
+.fv-modal {
+  background: #0b0b0b;
   color: #fff;
+  width: 420px;
+  max-width: 90%;
+  padding: 30px;
+  border-radius: 12px;
   position: relative;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
 }
 
-.quote-popup input,
-.quote-popup select,
-.quote-popup textarea {
+.fv-modal h2 {
+  margin-bottom: 10px;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.fv-modal p {
+  font-size: 14px;
+  color: #cbd5e1;
+  margin-bottom: 18px;
+}
+
+.fv-modal input,
+.fv-modal select,
+.fv-modal textarea {
   width: 100%;
   margin-bottom: 12px;
-  padding: 10px;
-  border-radius: 8px;
-  border: none;
+  padding: 12px;
+  background: #111;
+  border: 1px solid #333;
+  color: #fff;
+  border-radius: 6px;
 }
 
-.quote-popup button {
+.fv-modal textarea {
+  resize: none;
+  height: 80px;
+}
+
+.fv-modal button[type="submit"] {
   width: 100%;
+  background: #1e40ff;
+  border: none;
   padding: 12px;
-  background: #3b82f6;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.fv-close {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  background: none;
   border: none;
   color: #fff;
-  border-radius: 10px;
-  cursor: pointer;
-}
-
-.popup-close {
-  position: absolute;
-  top: 10px;
-  right: 14px;
-  font-size: 20px;
-  color: #555;
-  cursor: pointer;
-  background: none;
-  border: none;
-}
-
-.popup-close:hover {
-  color: #000;
-}
-
-/* ===== FINAL CLEAN QUOTE POPUP ===== */
-
-#quoteOverlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.55);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-}
-
-#quotePopup {
-  background: #ffffff;
-  color: #111827;
-  width: 100%;
-  max-width: 420px;
-  padding: 28px 24px;
-  border-radius: 16px;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
-  position: relative;
-  font-family: Arial, sans-serif;
-}
-
-/* Headings & text */
-#quotePopup h2,
-#quotePopup p,
-#quotePopup label {
-  color: #111827;
-}
-
-/* Inputs */
-#quotePopup input,
-#quotePopup textarea,
-#quotePopup select {
-  width: 100%;
-  padding: 12px;
-  margin-bottom: 14px;
-  font-size: 15px;
-  color: #111827;
-  background: #ffffff;
-  border: 1px solid #d1d5db;
-  border-radius: 8px;
-}
-
-#quotePopup input::placeholder,
-#quotePopup textarea::placeholder {
-  color: #6b7280;
-}
-
-/* Submit button */
-#quotePopup button[type="submit"] {
-  width: 100%;
-  padding: 12px;
-  background: #2563eb;
-  border: none;
-  color: #ffffff;
-  border-radius: 10px;
-  font-size: 15px;
-  cursor: pointer;
-}
-
-#quotePopup button[type="submit"]:hover {
-  background: #1d4ed8;
-}
-
-/* Close button (NO OVERLAP) */
-#quotePopup .popup-close {
-  position: absolute;
-  top: 12px;
-  right: 14px;
-  font-size: 22px;
-  background: none;
-  border: none;
-  color: #374151;
-  cursor: pointer;
-}
-
-#quotePopup .popup-close:hover {
-  color: #000000;
-}
-
-
-/* PLACEHOLDER COLOR */
-.popup-box input::placeholder,
-.popup-box textarea::placeholder {
-  color: #777;
-}
-
-#quoteOverlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.6);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-}
-
-#quotePopup {
-  background: #ffffff;
-  width: 100%;
-  max-width: 420px;
-  padding: 32px 26px;
-  border-radius: 16px;
-  position: relative;
-}
-
-#quotePopup h2 {
-  margin-bottom: 6px;
-  color: #111;
-}
-
-#quotePopup p {
-  margin-bottom: 16px;
-  color: #555;
-}
-
-#quotePopup input,
-#quotePopup textarea {
-  width: 100%;
-  padding: 12px;
-  margin-bottom: 14px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-}
-
-#quotePopup button[type="submit"] {
-  width: 100%;
-  padding: 12px;
-  background: #2563eb;
-  border: none;
-  color: white;
-  border-radius: 10px;
-}
-
-.popup-close {
-  position: absolute;
-  top: 12px;
-  right: 14px;
-  background: none;
-  border: none;
   font-size: 22px;
   cursor: pointer;
 }
+</style>
 
+<style>
+  .popup-content {
+    max-height: 85vh;
+    overflow-y: auto;
+  }
 </style>
 
 </head>
@@ -450,6 +326,35 @@
       </div>
     </div>
   </header>
+
+  <!-- POPUP OVERLAY (Get a Free Quote) -->
+  <div class="fv-overlay" id="quotePopup" aria-hidden="true">
+    <div class="fv-modal popup-content" role="dialog" aria-modal="true" aria-label="Get a Free Quote">
+      <button class="fv-close" type="button" aria-label="Close" onclick="closePopup()">×</button>
+
+      <h2>Get a Free Quote</h2>
+      <p>Tell us about your project and we will contact you.</p>
+
+      <form id="quotePopupForm">
+        <input type="text" name="fullName" placeholder="Full Name" required>
+        <input type="email" name="email" placeholder="Email Address" required>
+        <input type="text" name="phone" placeholder="Phone Number" required>
+
+        <select name="service" required>
+          <option value="">Select Service</option>
+          <option value="Ghostwriting">Ghostwriting</option>
+          <option value="Editing">Editing</option>
+          <option value="Publishing">Publishing</option>
+          <option value="Book Cover">Book Cover</option>
+        </select>
+
+        <textarea name="description" placeholder="Tell us about your book..."></textarea>
+
+        <button type="submit">Submit Request</button>
+      </form>
+    </div>
+  </div>
+
 
   <main id="top" class="pt-28">
     <!-- Hero (OscarGhostwriting-style) -->
@@ -974,7 +879,6 @@
             </div>
 
             <div class="p-7 sm:p-10 lg:p-12 bg-black/10">
-              <form class="glass rounded-[2rem] p-6 sm:p-8" onsubmit="return handleSubmit(event)">
                 <div class="grid gap-4">
                   <div class="grid sm:grid-cols-2 gap-4">
                     <div>
@@ -1102,16 +1006,18 @@
     if (saved) applyTheme(saved);
 
     function handleSubmit(e) {
-      e.preventDefault();
-      const msg = document.getElementById('formMsg');
-      msg.classList.remove('hidden');
-      msg.classList.remove('text-red-300');
-      msg.classList.add('text-emerald-300');
-      msg.textContent = "✅ Thanks! Your message has been sent (demo).";
-      e.target.reset();
-      return false;
-    }
-    window.handleSubmit = handleSubmit;
+  const msg = document.getElementById('formMsg');
+
+  // show success AFTER submit starts
+  setTimeout(() => {
+    msg.classList.remove('hidden');
+    msg.classList.remove('text-red-300');
+    msg.classList.add('text-emerald-300');
+    msg.textContent = "✅ Thanks! Your message has been sent.";
+    e.target.reset();
+  }, 700);
+}
+window.handleSubmit = handleSubmit;
 
     function openChat() {
       alert("Live chat is not connected yet. Tell me which chat you want (Tawk.to or Crisp) and I’ll add it.");
@@ -1185,73 +1091,281 @@
       requestAnimationFrame(tick);
     })();
   </script>
+<!-- First Visit Popup -->
+<div id="firstVisitModal" class="fv-overlay" style="display:none;">
+  <div class="fv-modal">
+    <button class="fv-close" onclick="closeFVModal()">×</button>
 
-<!-- Quote Popup -->
-<div id="quoteOverlay" style="display:none;">
-  <div class="quote-popup">
-   <button class="popup-close" onclick="closePopup()">×</button>
+    <h2>GET A FREE QUOTE!</h2>
+    <p>
+      Discuss your book idea with our consultants and we’ll help you transform it
+      into a multi-million dollar reality. It’s Free!
+    </p>
 
-<h2>Tell us about your book</h2>
-<p>We’ll get back to you shortly.</p>
+    <!-- ✅ THIS IS YOUR FORM -->
+    <form id="quoteForm">
 
-<form id="quoteForm">
-  <input type="text" placeholder="Full Name *" required>
-  <input type="email" placeholder="Email Address *" required>
-  <input type="tel" placeholder="Phone Number *" required>
-  <textarea placeholder="Brief description"></textarea>
-  <button type="submit">Submit</button>
-</form>
- 
+      <input
+        type="text"
+        name="fullName"
+        placeholder="Full Name *"
+        required
+      >
+
+      <input
+        type="email"
+        name="email"
+        placeholder="Email Address *"
+        required
+      >
+
+      <input
+        type="tel"
+        name="phone"
+        placeholder="Phone No. *"
+        required
+      >
+
+      <select name="service" required>
+        <option value="">Select a Service *</option>
+        <option>Ghostwriting</option>
+        <option>Editing</option>
+        <option>Publishing</option>
+        <option>Book Marketing</option>
+        <option>Cover Design</option>
+        <option>Other</option>
+      </select>
+
+      <textarea
+        name="description"
+        placeholder="Enter a description"
+        required
+      ></textarea>
+
+      <button type="submit">SUBMIT</button>
+    </form>
+
+      <div id="successMsg" style="display:none; margin-top:12px; padding:12px; border-radius:8px; background:#0f172a; border:1px solid #334155; color:#e2e8f0; font-size:14px;">✅ Thank you! We received your request.</div>
+
   </div>
 </div>
 
 <script>
-function openQuotePopup() {
-  document.getElementById("quoteOverlay").style.display = "flex";
-}
-
-function closeQuotePopup() {
-  document.getElementById("quoteOverlay").style.display = "none";
-}
-
 document.addEventListener("DOMContentLoaded", function () {
-  const form = document.getElementById("quoteForm");
-  if (!form) return;
+  if (!localStorage.getItem("visited")) {
+    document.getElementById("firstVisitModal").style.display = "flex";
+    localStorage.setItem("visited", "true");
+  }
+});
 
-  form.addEventListener("submit", async function (e) {
+function closeFVModal() {
+  document.getElementById("firstVisitModal").style.display = "none";
+}
+</script>
+<script>
+function showSuccess() {
+  setTimeout(function () {
+    alert("Thank you! We received your request.");
+  }, 500);
+}
+</script>
+<script>
+let submitted = false;
+
+function formSubmitted() {
+  if (submitted) {
+    document.getElementById("successMsg").style.display = "block";
+  }
+}
+
+const _qf = document.getElementById("quotePopupForm");
+if(_qf){ _qf.addEventListener("submit", function () { submitted = true; }); }
+</script>
+<script>
+/* Popup logic */
+document.addEventListener("DOMContentLoaded", function () {
+  if (!localStorage.getItem("visited")) {
+    document.getElementById("firstVisitModal").style.display = "flex";
+    localStorage.setItem("visited", "true");
+  }
+});
+
+function closeFVModal() {
+  document.getElementById("firstVisitModal").style.display = "none";
+}
+
+/* Google Sheets (Apps Script) submission */
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwLxXtYTaAWR8qlOUPacqwimO8Mv4ODAY1scf4KXUpJm2A0JFnKtjf4RxCZ4q8USF7k/exec";
+  const _SCRIPT_PLACEHOLDER = "https://script.google.com/macros/s/AKfycbwLxXtYTaAWR8qlOUPacqwimO8Mv4ODAY1scf4KXUpJm2A0JFnKtjf4RxCZ4q8USF7k/exec";
+
+const quoteForm = document.getElementById("quotePopupForm");
+const successMsg = document.getElementById("successMsg");
+
+if (quoteForm) {
+  quoteForm.addEventListener("submit", async function (e) {
     e.preventDefault();
 
+    // UI: disable button while sending
+    const btn = quoteForm.querySelector('button[type="submit"]');
+    const oldBtnText = btn ? btn.textContent : "";
+    if (btn) { btn.disabled = true; btn.textContent = "SENDING..."; }
+
     const payload = {
-      name: document.getElementById("name").value,
-      email: document.getElementById("email").value,
-      phone: document.getElementById("phone").value,
-      service: document.getElementById("service").value,
-      message: document.getElementById("message").value
+      fullName: quoteForm.elements["fullName"]?.value || "",
+      email: quoteForm.elements["email"]?.value || "",
+      phone: quoteForm.elements["phone"]?.value || "",
+      service: quoteForm.elements["service"]?.value || "",
+      description: quoteForm.elements["description"]?.value || ""
     };
 
     try {
-      await fetch("https://script.google.com/macros/s/AKfycbx8jeUx8dnfBQQjSbVy5bxfc4ucTHIsk_Z8Hr7rIGTzf0mjxYxExCTRCdSYSiwROQUQBQ/exec", {
+      const res = await fetch(SCRIPT_URL, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        mode: "no-cors",
+        headers: { "Content-Type": "text/plain;charset=utf-8" },
         body: JSON.stringify(payload)
       });
+      // Success UX
+      if (successMsg) successMsg.style.display = "block";
+      quoteForm.reset();
 
-      alert("Thank you! We’ll contact you shortly.");
-      form.reset();
-      closeQuotePopup();
-
+      // close popup after 1.2s
+      setTimeout(() => {
+        closeFVModal();
+      }, 1200);
     } catch (err) {
-      alert("Submission failed. Please try again.");
+      alert("❌ Error: Could not submit. Please try again.");
+      console.error(err);
+    } finally {
+      if (btn) { btn.disabled = false; btn.textContent = oldBtnText; }
     }
   });
-});
+}
 
-/* ✅ AUTO-OPEN POPUP */
-window.addEventListener("load", () => {
-  openQuotePopup();
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  // FORCE popup for now (testing)
+  document.getElementById("firstVisitModal").style.display = "flex";
+});
+</script>
+<script>
+(function () {
+  let submitted = false;
+
+  const form = document.getElementById("quotePopupForm");
+  const iframe = document.getElementById("hidden_iframe");
+  const successMsg = document.getElementById("successMsg");
+
+  if (!form || !iframe) return;
+
+  form.addEventListener("submit", function () {
+    submitted = true;
+  });
+
+  iframe.addEventListener("load", function () {
+    if (submitted) {
+      form.style.display = "none";
+      successMsg.style.display = "block";
+    }
+  });
+})();
+</script>
+<script>
+document.getElementById("quotePopupForm").addEventListener("submit", async function (e) {
+  e.preventDefault();
+
+  const form = this;
+  const formData = new FormData(form);
+
+  try {
+    await fetch("https://script.google.com/a/macros/thinktechnologies.net/s/AKfycbz8zEtb7OQcgXuWYF5Qm7Yp66qO4d1cSrrj7VxzmgAUdo0D8Yc0L04Q00uUZpSCJGH55g/exec", {
+      method: "POST",
+      body: formData
+    });
+
+    form.reset();
+    alert("Thank you! We’ll contact you shortly.");
+
+    closeFVModal(); // closes popup if you want
+
+  } catch (error) {
+    alert("Submission failed. Please try again.");
+  }
 });
 </script>
 
 
+
+
+<script>
+  // Google Sheets (Apps Script Web App) endpoint
+  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwLxXtYTaAWR8qlOUPacqwimO8Mv4ODAY1scf4KXUpJm2A0JFnKtjf4RxCZ4q8USF7k/exec";
+
+  function openPopup(){
+    const el = document.getElementById('quotePopup');
+    if(!el) return;
+    el.style.display = 'flex';
+    el.setAttribute('aria-hidden','false');
+  }
+
+  function closePopup(){
+    const el = document.getElementById('quotePopup');
+    if(!el) return;
+    el.style.display = 'none';
+    el.setAttribute('aria-hidden','true');
+  }
+
+  // Auto-open once per session
+  window.addEventListener('load', () => {
+    try{
+      if (sessionStorage.getItem('quotePopupShown') !== '1') {
+        setTimeout(openPopup, 2000);
+        sessionStorage.setItem('quotePopupShown','1');
+      }
+    }catch(e){
+      setTimeout(openPopup, 2000);
+    }
+
+    // Close when clicking outside the modal
+    const overlay = document.getElementById('quotePopup');
+    if (overlay) {
+      overlay.addEventListener('click', (ev) => {
+        if (ev.target === overlay) closePopup();
+      });
+    }
+  });
+
+  // Submit to Google Sheets
+  (function(){
+    const form = document.getElementById('quotePopupForm');
+    if(!form) return;
+
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+
+      const payload = {
+        fullName: form.fullName?.value || "",
+        email: form.email?.value || "",
+        phone: form.phone?.value || "",
+        service: form.service?.value || "",
+        description: form.description?.value || ""
+      };
+
+      fetch(SCRIPT_URL, {
+        method: 'POST',
+        body: JSON.stringify(payload)
+      })
+      .then(() => {
+        alert('Thank you! We will contact you soon.');
+        form.reset();
+        closePopup();
+      })
+      .catch(() => {
+        alert('Error: form could not be submitted. Please try again.');
+      });
+    });
+  })();
+</script>
 </body>
 </html>
