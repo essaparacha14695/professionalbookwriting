@@ -560,6 +560,70 @@ section {
   transform: translateY(-2px);
   box-shadow: 0 14px 30px rgba(212, 175, 55, 0.35);
 }
+/* =====================
+   SERVICE IMAGE TILES
+   ===================== */
+
+.service-tiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+/* Individual tile */
+.service-tile {
+  position: relative;
+  height: 420px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 1.2rem;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+}
+
+/* Dark overlay for readability */
+.service-tile::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(5, 8, 15, 0.85),
+    rgba(5, 8, 15, 0.35),
+    rgba(5, 8, 15, 0.15)
+  );
+  z-index: 1;
+}
+
+/* Text content */
+.tile-content {
+  position: relative;
+  z-index: 2;
+  padding: 2rem;
+}
+
+.tile-content h3 {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.tile-content p {
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+/* Hover polish */
+@media (hover: hover) {
+  .service-tile {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .service-tile:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 25px 60px rgba(0,0,0,0.45);
+  }
+}
 
 </style>
 
@@ -890,38 +954,42 @@ section {
     <div class="container">
       <h2 class="section-title">Our Book Marketing Services</h2>
 
-      <div class="service-row">
-        <img src="assets/images/amazon-optimization.png" alt="">
-        <div class="service-content">
-          <h3>Amazon Optimization</h3>
-          <p>
-            We optimize your book’s title, description, keywords,
-            categories, and author profile to improve discoverability.
-          </p>
-        </div>
-      </div>
+      <div class="service-tiles">
 
-      <div class="service-row reverse">
-        <img src="assets/images/digital-promotion.png" alt="">
-        <div class="service-content">
-          <h3>Digital Promotion</h3>
-          <p>
-            Targeted campaigns focused on reach, relevance,
-            and professionalism.
-          </p>
-        </div>
-      </div>
-
-      <div class="service-row">
-        <img src="assets/images/reviews.png" alt="">
-        <div class="service-content">
-          <h3>Review & Reputation Support</h3>
-          <p>
-            Ethical guidance to build credibility without fake reviews.
-          </p>
-        </div>
-      </div>
+  <!-- AMAZON OPTIMIZATION -->
+  <div class="service-tile" style="background-image:url('mpic2.jpg')">
+    <div class="tile-content">
+      <h3>Amazon Optimization</h3>
+      <p>
+        We optimize your book’s title, description, keywords,
+        categories, and author profile to improve discoverability.
+      </p>
     </div>
+  </div>
+
+  <!-- DIGITAL PROMOTION -->
+  <div class="service-tile" style="background-image:url('mpic1.jpg')">
+    <div class="tile-content">
+      <h3>Digital Promotion</h3>
+      <p>
+        Targeted campaigns focused on reach, relevance,
+        and professionalism.
+      </p>
+    </div>
+  </div>
+
+  <!-- REVIEWS & REPUTATION -->
+  <div class="service-tile" style="background-image:url('mpic3.jpg')">
+    <div class="tile-content">
+      <h3>Review & Reputation Support</h3>
+      <p>
+        Ethical guidance to build credibility
+        without fake reviews.
+      </p>
+    </div>
+  </div>
+
+</div>
   </section>
 
   <!-- ================= COMPARISON ================= -->
