@@ -352,6 +352,63 @@
   color: #777;
 }
 
+#quoteOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+#quotePopup {
+  background: #ffffff;
+  width: 100%;
+  max-width: 420px;
+  padding: 32px 26px;
+  border-radius: 16px;
+  position: relative;
+}
+
+#quotePopup h2 {
+  margin-bottom: 6px;
+  color: #111;
+}
+
+#quotePopup p {
+  margin-bottom: 16px;
+  color: #555;
+}
+
+#quotePopup input,
+#quotePopup textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 14px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+#quotePopup button[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  background: #2563eb;
+  border: none;
+  color: white;
+  border-radius: 10px;
+}
+
+.popup-close {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+}
+
 </style>
 
 </head>
@@ -1132,28 +1189,19 @@
 <!-- Quote Popup -->
 <div id="quoteOverlay" style="display:none;">
   <div class="quote-popup">
-    <button class="popup-close" onclick="closeQuotePopup()">×</button>
+   <button class="popup-close" onclick="closePopup()">×</button>
 
-    <h2>Get a Free Quote</h2>
-    <p>Tell us about your book idea and we’ll get back to you.</p>
+<h2>Tell us about your book</h2>
+<p>We’ll get back to you shortly.</p>
 
-    <form id="quoteForm">
-      <input id="name" type="text" placeholder="Full Name *" required>
-      <input id="email" type="email" placeholder="Email Address *" required>
-      <input id="phone" type="tel" placeholder="Phone Number *" required>
-
-      <select id="service" required>
-        <option value="">Select a Service *</option>
-        <option>Ghostwriting</option>
-        <option>Editing</option>
-        <option>Publishing</option>
-        <option>Book Marketing</option>
-      </select>
-
-      <textarea id="message" placeholder="Brief description"></textarea>
-
-      <button type="submit">Submit</button>
-    </form>
+<form id="quoteForm">
+  <input type="text" placeholder="Full Name *" required>
+  <input type="email" placeholder="Email Address *" required>
+  <input type="tel" placeholder="Phone Number *" required>
+  <textarea placeholder="Brief description"></textarea>
+  <button type="submit">Submit</button>
+</form>
+ 
   </div>
 </div>
 
