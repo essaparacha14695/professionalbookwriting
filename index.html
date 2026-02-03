@@ -1162,86 +1162,6 @@ function closeFVModal() {
   document.getElementById("firstVisitModal").style.display = "none";
 }
 </script>
-<script>
-function showSuccess() {
-  setTimeout(function () {
-    alert("Thank you! We received your request.");
-  }, 500);
-}
-</script>
-<script>
-let submitted = false;
-
-function formSubmitted() {
-  if (submitted) {
-    document.getElementById("successMsg").style.display = "block";
-  }
-}
-
-const _qf = document.getElementById("quotePopupForm");
-if(_qf){ _qf.addEventListener("submit", function () { submitted = true; }); }
-</script>
-<script>
-/* Popup logic */
-document.addEventListener("DOMContentLoaded", function () {
-  if (!localStorage.getItem("visited")) {
-    document.getElementById("firstVisitModal").style.display = "flex";
-    localStorage.setItem("visited", "true");
-  }
-});
-
-function closeFVModal() {
-  document.getElementById("firstVisitModal").style.display = "none";
-}
-
-/* Google Sheets (Apps Script) submission */
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwLxXtYTaAWR8qlOUPacqwimO8Mv4ODAY1scf4KXUpJm2A0JFnKtjf4RxCZ4q8USF7k/exec";
-  const _SCRIPT_PLACEHOLDER = "https://script.google.com/macros/s/AKfycbwLxXtYTaAWR8qlOUPacqwimO8Mv4ODAY1scf4KXUpJm2A0JFnKtjf4RxCZ4q8USF7k/exec";
-
-const quoteForm = document.getElementById("quotePopupForm");
-const successMsg = document.getElementById("successMsg");
-
-if (quoteForm) {
-  quoteForm.addEventListener("submit", async function (e) {
-    e.preventDefault();
-
-    // UI: disable button while sending
-    const btn = quoteForm.querySelector('button[type="submit"]');
-    const oldBtnText = btn ? btn.textContent : "";
-    if (btn) { btn.disabled = true; btn.textContent = "SENDING..."; }
-
-    const payload = {
-      fullName: quoteForm.elements["fullName"]?.value || "",
-      email: quoteForm.elements["email"]?.value || "",
-      phone: quoteForm.elements["phone"]?.value || "",
-      service: quoteForm.elements["service"]?.value || "",
-      description: quoteForm.elements["description"]?.value || ""
-    };
-
-    try {
-      const res = await fetch(SCRIPT_URL, {
-        method: "POST",
-        mode: "no-cors",
-        headers: { "Content-Type": "text/plain;charset=utf-8" },
-        body: JSON.stringify(payload)
-      });
-      // Success UX
-      if (successMsg) successMsg.style.display = "block";
-      quoteForm.reset();
-
-      // close popup after 1.2s
-      setTimeout(() => {
-        closeFVModal();
-      }, 1200);
-    } catch (err) {
-      alert("❌ Error: Could not submit. Please try again.");
-      console.error(err);
-    } finally {
-      if (btn) { btn.disabled = false; btn.textContent = oldBtnText; }
-    }
-  });
-}
-
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
@@ -1250,122 +1170,54 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 </script>
 <script>
-(function () {
-  let submitted = false;
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwLxXtYTaAWR8qlOUPacqwimO8Mv4ODAY1scf4KXUpJm2A0JFnKtjf4RxCZ4q8USF7k/exec";
 
-  const form = document.getElementById("quotePopupForm");
-  const iframe = document.getElementById("hidden_iframe");
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById("quoteForm");
   const successMsg = document.getElementById("successMsg");
 
-  if (!form || !iframe) return;
+  if (!form) return;
 
-  form.addEventListener("submit", function () {
-    submitted = true;
-  });
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
 
-  iframe.addEventListener("load", function () {
-    if (submitted) {
-      form.style.display = "none";
-      successMsg.style.display = "block";
+    const btn = form.querySelector("button[type='submit']");
+    if (btn) {
+      btn.disabled = true;
+      btn.textContent = "SENDING...";
     }
-  });
-})();
-</script>
-<script>
-document.getElementById("quotePopupForm").addEventListener("submit", async function (e) {
-  e.preventDefault();
 
-  const form = this;
-  const formData = new FormData(form);
+    const payload = {
+      fullName: form.fullName.value,
+      email: form.email.value,
+      phone: form.phone.value,
+      service: form.service.value,
+      description: form.description.value
+    };
 
-  try {
-    await fetch("https://script.google.com/a/macros/thinktechnologies.net/s/AKfycbz8zEtb7OQcgXuWYF5Qm7Yp66qO4d1cSrrj7VxzmgAUdo0D8Yc0L04Q00uUZpSCJGH55g/exec", {
+    fetch(SCRIPT_URL, {
       method: "POST",
-      body: formData
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    })
+    .then(() => {
+      successMsg.style.display = "block";
+      form.reset();
+
+      setTimeout(() => closeFVModal(), 1200);
+    })
+    .catch(() => {
+      alert("Network error. Please try again.");
+    })
+    .finally(() => {
+      if (btn) {
+        btn.disabled = false;
+        btn.textContent = "SUBMIT";
+      }
     });
-
-    form.reset();
-    alert("Thank you! We’ll contact you shortly.");
-
-    closeFVModal(); // closes popup if you want
-
-  } catch (error) {
-    alert("Submission failed. Please try again.");
-  }
+  });
 });
 </script>
 
-
-
-
-<script>
-  // Google Sheets (Apps Script Web App) endpoint
-  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwLxXtYTaAWR8qlOUPacqwimO8Mv4ODAY1scf4KXUpJm2A0JFnKtjf4RxCZ4q8USF7k/exec";
-
-  function openPopup(){
-    const el = document.getElementById('quotePopup');
-    if(!el) return;
-    el.style.display = 'flex';
-    el.setAttribute('aria-hidden','false');
-  }
-
-  function closePopup(){
-    const el = document.getElementById('quotePopup');
-    if(!el) return;
-    el.style.display = 'none';
-    el.setAttribute('aria-hidden','true');
-  }
-
-  // Auto-open once per session
-  window.addEventListener('load', () => {
-    try{
-      if (sessionStorage.getItem('quotePopupShown') !== '1') {
-        setTimeout(openPopup, 2000);
-        sessionStorage.setItem('quotePopupShown','1');
-      }
-    }catch(e){
-      setTimeout(openPopup, 2000);
-    }
-
-    // Close when clicking outside the modal
-    const overlay = document.getElementById('quotePopup');
-    if (overlay) {
-      overlay.addEventListener('click', (ev) => {
-        if (ev.target === overlay) closePopup();
-      });
-    }
-  });
-
-  // Submit to Google Sheets
-  (function(){
-    const form = document.getElementById('quotePopupForm');
-    if(!form) return;
-
-    form.addEventListener('submit', function(e){
-      e.preventDefault();
-
-      const payload = {
-        fullName: form.fullName?.value || "",
-        email: form.email?.value || "",
-        phone: form.phone?.value || "",
-        service: form.service?.value || "",
-        description: form.description?.value || ""
-      };
-
-      fetch(SCRIPT_URL, {
-        method: 'POST',
-        body: JSON.stringify(payload)
-      })
-      .then(() => {
-        alert('Thank you! We will contact you soon.');
-        form.reset();
-        closePopup();
-      })
-      .catch(() => {
-        alert('Error: form could not be submitted. Please try again.');
-      });
-    });
-  })();
-</script>
 </body>
 </html>
